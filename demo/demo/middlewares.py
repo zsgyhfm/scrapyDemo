@@ -8,7 +8,7 @@
 from scrapy import signals
 
 
-class Demo1SpiderMiddleware(object):
+class DemoSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -56,7 +56,7 @@ class Demo1SpiderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class Demo1DownloaderMiddleware(object):
+class DemoDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.

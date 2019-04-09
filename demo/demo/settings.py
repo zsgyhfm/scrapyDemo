@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for demo1 project
+# Scrapy settings for demo project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'demo1'
+BOT_NAME = 'demo'
 
-SPIDER_MODULES = ['demo1.spiders']
-NEWSPIDER_MODULE = 'demo1.spiders'
+SPIDER_MODULES = ['demo.spiders']
+NEWSPIDER_MODULE = 'demo.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'demo1 (+http://www.yourdomain.com)'
+#USER_AGENT = 'demo (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'demo1.middlewares.Demo1SpiderMiddleware': 543,
+#    'demo.middlewares.DemoSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'demo1.middlewares.Demo1DownloaderMiddleware': 543,
+#    'demo.middlewares.DemoDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'demo1.pipelines.Demo1Pipeline': 300,
+#    'demo.pipelines.DemoPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
