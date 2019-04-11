@@ -24,6 +24,7 @@ class FirstSpider(scrapy.Spider):
             json_data["title"] = item.css(".text::text").extract_first()
             json_data["author "] = item.css(".author::text").extract_first()
             json_data['tags'] = item.css('.tags .tag::text').extract()  # 提取标签
+            json_data["details"] = item.css("span>a::attr(href)").extract_first()  # 提取详情地址
             self.data.append(json_data)
 
         if next_page is not None:
