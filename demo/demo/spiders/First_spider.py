@@ -28,31 +28,23 @@ class FirstSpider(scrapy.Spider):
             json_data['tags'] = item.css('.tags .tag::text').extract()  # 提取标签
             json_data["details"] = item.css("span>a::attr(href)").extract_first()  # 提取详情地址
             self.data.append(json_data)
-            # 获取图片地址
+            # 获取图片地址--response.follow 追踪链接，如：取得的连接是/static/index 这样的 使用follow 会自动加上当前域名
+            # 注意 这里 yield
             yield response.follow(json_data["details"], callback=self.parse_src)
 
         if next_page is not None:
-            print("*" * 50)
-            print("执行下一页")
-            print("*" * 50)
             # 注意这个yield 不加的话 爬虫 执行不下去 ，一次之后就关闭了，或许 这框架调用的是next()
             yield response.follow(next_page, callback=self.parse)
+
         # 注意 windows下 文件编码是GBK  这里要指定打开编码
         with open("data.json", "w+", encoding='utf-8') as f:
-            print("-" * 50)
-            print("保存------地址")
-            print("-" * 50)
             s = json.dumps(self.data, ensure_ascii=False)
             f.write(s)
+        # 注意这里不能选择 追加模式
         with open("src.json", "w+", encoding="utf-8") as f:
-            print("+"*50)
-            print("保存src地址")
-            print("+" * 50)
             f.write(json.dumps(self.src_data, ensure_ascii=False))
 
-        # 上面的数据保存完毕后 读取json_data 下载图片
-
-    """讲详情里面的图片下载下来"""
+    """讲详情里面的图片保存下来"""
 
     def parse_src(self, response: Response):
         content = response.xpath('//div[@class="post-content"]//img/@src').extract()
