@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'demo.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'demo (+http://www.yourdomain.com)'
 
-# Obey robots.txt rules
+# Obey robots.txt rules  机器人协议
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'demo.pipelines.DemoPipeline': 300,
-#}
+#   后面的值是优先级  越小 优先级越高
+ITEM_PIPELINES = {
+   'demo.pipelines.DemoPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
